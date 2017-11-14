@@ -11,7 +11,10 @@
 </thead>
 <tbody>
 <tr>
-
+  
+    <% @cart.line_items.each do |item| %>
+    <tr><td><%= item.quantity %> &times; <%= item.product.title %></td><td></td></tr>
+  <% end %>
 
 <tr>
 <td>
