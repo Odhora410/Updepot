@@ -25,8 +25,8 @@ class LineItemsController < ApplicationController
 
  def create
      product = Product.find(params[:product_id])
-     #@line_item = @cart.add_product(product)
-     @line_item = @cart.line_items.build(product: product)
+     @line_item = @cart.add_product(product)
+     #@line_item = @cart.line_items.build(product: product)
  
      respond_to do |format|
       if @line_item.save
@@ -38,7 +38,7 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-  end
+ end
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
